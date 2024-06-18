@@ -1,5 +1,6 @@
-:root {
-  /* colors */
+
+ :root {
+ /* colors */
   --texto-primario: #dddddd;
   --texto-secundario: #d1d1d1;
   --fondo-primario: #0f0921;
@@ -35,6 +36,7 @@
   font-family: "Roboto", sans-serif;
   font-style: normal;
 }
+
 html {
   background-color: var(--fondo-primario);
 }
@@ -42,6 +44,16 @@ body {
   min-height: 100%;
   position: relative;
 }
+
+/* Hola, en este video continuaremos agregando estilos al proyecto. 
+Para esto mismo deberemos utilizar las clases que utilizamos anteriormente en las etiquetas de html. 
+Comencemos siguiendo la estructura de nuestro documento html de arriba hacia abajo. Para facilitar esto
+escribamos la misma (comentarios: encabezado, principal, presentacion, articulo, seccion descripcion,
+ pie de pagina) 
+recuerden que tambien teniamos elementos que podian repetirse en varios lugares de la pagina, los mismos 
+los escribiremos al final (comentarios: enlaces, botones, tarjetas) */
+
+/* encabezado */
 .encabezado {
   position: absolute;
   width: 100%;
@@ -140,7 +152,6 @@ body {
     var(--fondo-primario) 55%
   );
   /* eliminar en el video 3 */
-
 }
 
 .articulo__titulo {
@@ -172,8 +183,7 @@ body {
   height: 300px;
   width: 300px;
   padding: 10px;
-  background-color: transparent;
-  /*   background-color: transparent; */
+  background-color: transparent; 
   cursor: pointer;
 }
 .seccion_descripcion__imagen {
@@ -192,7 +202,7 @@ body {
     background-color 0.3s ease, transform 0.3s ease,
     border-radius 0.1s 0.2s ease; 
 }
-.seccion_descripcion__imagen_variante {
+ .seccion_descripcion__imagen_variante {
   top: auto;
   bottom: 40px;
 }
@@ -208,7 +218,8 @@ body {
   border-radius: 20px;
   transform: translateX(0);
 }
-.seccion_descripcion__imagen_variante:hover {
+.seccion_descripcion__imagen_variante:hover,
+.seccion_descripcion__imagen_variente:focus {
   top: auto;
   bottom: 0;
 } 
@@ -310,12 +321,12 @@ body {
   aspect-ratio: 1;
   filter: drop-shadow(0px 0px 2px var(--texto-primario));
 }
- .enlaces__icono:hover ,
- .enlaces__icono:focus {
+.enlaces__icono:hover,
+.enlaces__icono:focus {
   filter: drop-shadow(0px 0px 4px var(--texto-primario));
 }
- .enlaces__enlace:hover,
- .enlaces__enlace:focus {
+.enlaces__enlace:hover,
+.enlaces__enlace:focus {
   color: var(--color-primario);
 } 
 /* botones */
@@ -332,8 +343,8 @@ body {
   border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease; /* agregar en semana siguiente */
 }
-.boton:hover ,
-.boton:focus{
+.boton:hover,
+.boton:focus {
   color: var(--texto-primario);
   background-color: var(--color-primario-apagado);
 } 
@@ -350,9 +361,8 @@ body {
 /* tarjetas */
 .contenedor_tarjetas_grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr ;
   gap: 2rem;
 }
 .tarjeta {
@@ -360,12 +370,14 @@ body {
   height: 300px;
   background-color: var(--fondo-primario-transparente);
   border-radius: 0.375rem;
-  box-shadow: 0 0 8px var(--color-primario-transparente);
-  position: relative; 
+  box-shadow: 0 0 8px var(--color-primario-transparente); 
   overflow: hidden;
-  transition: box-shadow 0.3s ease; 
-  /* eliminar display flex en video 3 */
+  position: relative;
+  transition: box-shadow 0.3s ease;
 }
+  /*
+   eliminar display flex en video 3 */
+  
 .tarjeta__contenido {
   position: absolute;
   left: 0;
@@ -404,26 +416,25 @@ body {
 }
 .tarjeta__imagen {
   height: 100%;
-  width: 100%;
-  /* width: 100%; */
+  width: 100%; 
   object-fit: cover;
-  transition: transform 0.3s ease-in; 
+  transition: transform 0.3s ease-in;
 }
-.tarjeta:hover,
-.tajeta:focus {
+.tarjeta:hover 
+.tarjeta:focus {
   box-shadow: 0px 0px 12px var(--fondo-secundario);
 }
-.tarjeta:hover > .tarjeta__imagen,
+.tarjeta:hover > .tarjeta__imagen
 .tarjeta:focus > .tarjeta__imagen {
   transform: scale(1.2);
 }
-.tarjeta:hover > .tarjeta__contenido,
-.tajeta:focus > .tarjeta__contenido {
+.tarjeta:hover > .tarjeta__contenido 
+.tarjeta:focus > .tarjeta__contenido {
   opacity: 1;
 } 
-/*scroll */
+/* scroll */
 .scroll {
-  stroke-width: auto;
+  scrollbar-width: auto;
   scrollbar-color: var(--color-primario) transparent;
 }
 .scroll_fino {
@@ -432,11 +443,10 @@ body {
 .scroll_gris {
   scrollbar-color: var(--color-terciario) transparent;
 }
-
-/* reposive */
-@media (max-width: 1700px) {
+/*responsive */
+@media ( max-width: 1700px) {
   .presentacion__titulo {
-    font-size: var(--presentacion-titulo-tamanio-grande);
+   font-size: var(--presentacion-titulo-tamanio-grande);
   }
   .articulo {
     height: max-content;
@@ -446,96 +456,93 @@ body {
     align-self: center;
   }
 }
-@media (max-width: 1200px) {
-  .presentacion__contenedor_info {
+
+@media ( max-width:1200px) {
+  .presentacion__contenedor_info{
     justify-content: flex-end;
-    background: linear-gradient(90deg, var(--fondo-primario-transparente)40%
-    transparent 60%
+    background: linear-gradient(
+      90deg,
+      var(--fondo-primario-transparente) 40%,
+      transparent 60%
     );
   }
-
-   .contenedor_tarjetas_grid {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr auto;
+  .contenedor_tarjetas_grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
   }
-
-   .articulo__contenedor_descripciones {
+  .articulo__contenedor_descripciones {
     display: flex;
     flex-direction: column;
     justify-content: center;
-   }
-
-   .seccion_descripcion {
+  }
+  .seccion_descripcion {
     height: max-content;
     gap: 1rem;
-   }
-
-   .seccion_descripcion__info {
+  }
+  .seccion_descripcion__info{
     height: 300px;
-   }
-
-   .pie_de_pagina {
+  }
+  .pie_de_pagina {
     height: max-content;
     justify-content: flex-start;
-   }
-   }
-
-
-   @media (max-width: 992px) {
-    .presentacion__contenedor_info {
-      background: linear-gradient(90deg,
-      var(--fondo-primario-transparente) 40%
-      transparent 80%);
-    }
-    .boton {
-      width: 140px;
-    }
-    .articulo {
-      padding: 2rem 6rem;
-    }
-   }
-
-
-   @media (max-width: 760px) {
-    .navegacion {
-      height: 120px;
-      display: flex;
-      flex-direction: column;
-      background-color: var(--fondo-primario-transparente);
-    }
-    .enlace {
-      width: 80%;
-    }
-    .enlaces_redes {
-      width: 100%;
-    }
-    .enlaces_vertical {
-      width: 100%;
-    }
-    .articulo {
-      padding: 2rem;
-      overflow-x: hidden;
-    }
-    .tarjeta__contenido .boton {
-      align-self: center;
-    }
-    .pie_de_pagina {
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-    }
-    .pie_de_pagina__columna {
-      flex-basis: 150px;
-      width: 100%;
-    }
   }
-  @media (max-width:567px ) {
-    .presentacion__titulo {
-      font-size: var(--titulo-tamanio);
-    }
-    .presentacion__contenedor_botones {
-      justify-content: flex-start;
-      width: 100%;
+}
+@media (max-width: 992px) {
+  .presentacion__contenedor_info {
+    background: linear-gradient(
+      90deg,
+      var(--fondo-primario-transparente) 40%,
+      transparent 80%
+    );
+  }
+  .boton{
+    width: 140px;
+  }
+  .articulo {
+    padding: 2rem 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navegacion {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fondo-primario-transparente);
+  }
+  .enlaces {
+    width: 80%;
+  }
+  .enlaces_redes {
+    width: 100%;
+  }
+  .enlaces_vertical {
+    width: 100%;
+  }
+  .articulo {
+    padding: 2rem;
+    overflow-x: hidden;
+  }
+  .tarjeta__contenido .boton {
+    align-self: center;
+  }
+  .pie_de_pagina {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .pie_de_pagina__columna{
+    flex-basis: 150px;
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .presentacion__titulo {
+    font-size: var(--titulo-tamanio);
+  }
+  .presentacion__contenedor_botones {
+    justify-content: flex-start;
+    width: 100%;
     }
     .seccion_descripcion {
       padding: 20px;
@@ -563,22 +570,19 @@ body {
     }
   }
 
-  /* animaciones */
-  @keyframes cambiar {
+  /*animaciones */
+
+  @keyframes cambiar-color {
     0% {
       color: var(--texto-primario);
       filter: drop-shadow(0 0 6px var(--fondo-primario));
     }
     50% {
       color: var(--color-primario);
-      filter : none;
+      filter: none;
     }
     100% {
       filter: drop-shadow(0 0 6px var(--color-primario));
       color: var(--color-secundario);
     }
   }
-  
-    
-
-
